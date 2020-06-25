@@ -27,8 +27,7 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 try {
-                    int elemInt = Integer.parseInt(arr[i][j]);
-                    sum += elemInt;
+                    sum += Integer.parseInt(arr[i][j]);
                 } catch (NumberFormatException e) {
                     throw new MyArrayDataException("Невозможно конвертировать значение", arr[i][j], i, j);
                 }
