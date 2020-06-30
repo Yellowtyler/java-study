@@ -1,6 +1,5 @@
 package com.study.daniil;
 
-import javax.swing.text.StyleContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +38,7 @@ public class Phonebook {
         phoneBookMap.put(phone, surname);
     }
 
-    public List<String> getPhonesByName(String surname) {
+    public List<String> getPhonesBySurname(String surname) {
         List<String> list = new ArrayList<>();
         for (Map.Entry<String, String> entry: phoneBookMap.entrySet()) {
             if(entry.getValue().equals(surname)) {

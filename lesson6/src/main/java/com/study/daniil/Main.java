@@ -48,9 +48,8 @@ public class Main {
 
         System.out.println(phonebook.getPhoneBookMap());
 
-        List<String> listIvanov = phonebook.getPhonesByName("Иванов");
+        List<String> listIvanov = phonebook.getPhonesBySurname("Иванов");
 
-        List<String> shedrov = phonebook.getPhonesByName("Щедров");
-
+        List<String> shedrov = phonebook.getPhonesBySurname("Щедров");
     }
 }
