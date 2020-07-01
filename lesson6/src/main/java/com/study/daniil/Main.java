@@ -51,5 +51,7 @@ public class Main {
         List<String> listIvanov = phonebook.getPhonesBySurname("Иванов");
 
         List<String> shedrov = phonebook.getPhonesBySurname("Щедров");
+
+        List<String> empty = phonebook.getPhonesBySurname("Шолохов");
     }
 }

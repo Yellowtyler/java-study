@@ -1,9 +1,6 @@
 package com.study.daniil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,6 +36,10 @@ public class Phonebook {
     }
 
     public List<String> getPhonesBySurname(String surname) {
+        if(!phoneBookMap.containsValue(surname)) {
+            System.out.println("Номера телефонов с такой фамилией не существует!");
+            return Collections.emptyList();
+        }
         List<String> list = new ArrayList<>();
         for (Map.Entry<String, String> entry: phoneBookMap.entrySet()) {
             if(entry.getValue().equals(surname)) {
