@@ -25,24 +25,23 @@ public class Main {
         if(file.isDirectory()) {
             File[] files = file.listFiles(f -> f.isFile() && f.getName().contains(".txt"));
             for (int i = 0; i < files.length; i++) {
+                String fileStr="";
                 String str;
-                List<String> stringList = new ArrayList<>();
                 try(BufferedReader reader = new BufferedReader(new FileReader(files[i]))) {
                     while((str = reader.readLine()) != null) {
-                        stringList.add(str);
+                        fileStr+=str + "\n";
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                files[i].delete();
-                try(BufferedWriter writer = new BufferedWriter(new FileWriter(file.getAbsolutePath() + "\\" + filename + ".txt", true))) {
-                    for (int j = 0; j < stringList.size(); j++) {
-                        writer.write(stringList.get(j));
-                        if(i != file.length()-1 && j != stringList.size()-1) {
-                            writer.newLine();
-                        }
-                    }
 
+                if(i == files.length-1) {
+                    fileStr = fileStr.substring(0,fileStr.length()-1);
+                }
+                files[i].delete();
+
+                try(BufferedWriter writer = new BufferedWriter(new FileWriter(file.getAbsolutePath() + "\\" + filename + ".txt", true))) {
+                    writer.write(fileStr);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
